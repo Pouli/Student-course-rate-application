@@ -1,7 +1,7 @@
 Student-course-rate-application
 ===============================
 
-A simple "social network" which allow students to rate and comment their university courses (Node.js, MongoDB, Passport.js and Angular.js)
+A simple "social network" which allow students to rate and comment their university/college/school courses (Node.js, MongoDB, Passport.js and Angular.js)
 
 ## Install
   - Node.js
