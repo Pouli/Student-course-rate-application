@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Comments</h1>
+  <p>Average: {{calculateAverage()}}</p>
+  <a href="#/profil" class="btn btn-circle btn-profil"><i class="fa fa-user fa-2x"></i></a>
+  <button class="btn btn btn-circle btn-logout" ng-click="logout()">
+    <i class="fa fa-sign-out fa-2x"></i>
+  </button>
+  <a ng-click="isCollapsing()" class="btn btn-circle btn-add" ng-hide="collapse"><i class="fa fa-plus fa-2x"></i></a>
+  <a ng-click="isUncollapsing()" class="btn btn-circle btn-add" ng-show="collapse"><i class="fa fa-minus fa-2x"></i></a>
+  <div name="addCourse" ng-show="collapse">
+    <h3>Fill the form for adding a course</h3>
+    <div ng-if="isErrorMessage()">
+      <div class="alert alert-danger">
+        <p>{{errorMessage}}</p>
+      </div>
+    </div>
+    <div ng-if="isSuccessMessage()">
+      <div class="alert alert-success">
+        <p>{{successMessage}}</p>
+      </div>
+    </div>
+    <form name="addCommentForm" ng-submit="submitComment(addCommentForm.$valid)">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-mortar-board fa-fw"></i></span>
+          <select class="form-control" ng-model="formData.mark" required>
+            <option selected disabled>Select your mark</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-commetns-o fa-fw"></i></span>
+          <textarea type="text" class="form-control" placeholder="Comment" ng-model="formData.comment" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-circle btn-check"><i class="fa fa-check fa-2x"></i></button>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="item" ng-repeat="comment in comments">
+        <p><strong>Mark: </strong>{{comment.mark}} / 5</p>
+        <p><strong>Comment: </strong>{{comment.comment}}</p>
+      </div>
+    </div>
+  </div>
+</div>
